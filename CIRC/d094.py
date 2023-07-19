@@ -1,9 +1,4 @@
 class BFSNode:
-    # n = 0
-    # p = 0
-    # l = 0
-    # r = 0
-    # ls = 0
 
     def __init__(self, pos, lv):
         self.right = None
@@ -65,40 +60,16 @@ class BFSNode:
             tNode = q.pop(0)
             while tNode is None:
                 if len(q) == 0:
-                    print("no steps")
+                    #print("no steps")
                     return
                 tNode = q.pop(0)
             if tNode.pos == p:
-                print("steps", tNode.lv)
+                print(tNode.lv)
                 return
-
-
-# def goLeft(n, l, list, pos):
-#     pos = pos - l
-#     if pos < 0 or pos > n:
-#         return -1
-#     else:
-#         pos = list[pos]
-#     return pos
-
-
-# def goRight(n, r, list, pos):
-#     pos = pos + r
-#     if pos < 0 or pos > n:
-#         return -1
-#     else:
-#         pos = list[pos]
-#     return pos
-
 
 def main():
     n,P,L,R = [int(p) for p in input().split()]
-    board = input().split()
-    # n, P, L, R = 5, 3, 1, 2
-    # board = [0, 2, 4, 3, 1]
-    #n, P, L, R = 10, 8, 2, 3
-    #board = [0, 5, 2, 3, 4, 5, 6, 6, 8, 9]
-
+    board = [int(p) for p in input().split()]
     root = BFSNode(0, 0)
     root.config(n, P, L, R, board)
     root.goal(P)
